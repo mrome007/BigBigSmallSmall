@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BigSmallMovement.cs" />
+     <Compile Include="Assets\Scripts\BigSmallProjectile.cs" />
+     <Compile Include="Assets\Scripts\FireBigSmallProjectile.cs" />
      <Compile Include="Assets\Scripts\GetBigOrSmall.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

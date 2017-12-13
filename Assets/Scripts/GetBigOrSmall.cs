@@ -22,12 +22,12 @@ public class GetBigOrSmall : MonoBehaviour
 
 	private void BigSmallInput()
 	{
-		if(Input.GetKey(KeyCode.N))
+		if(Input.GetKey(KeyCode.J))
 		{
 			GetBigSmall(false);
 		}
 
-		if(Input.GetKey(KeyCode.M))
+		if(Input.GetKey(KeyCode.K))
 		{
 			GetBigSmall(true);
 		}
