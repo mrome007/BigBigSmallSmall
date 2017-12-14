@@ -20,13 +20,13 @@ public class FireBigSmallProjectile : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.N))
         {
             var big = Instantiate(bigProjectile, transform.position, Quaternion.identity);
-            big.Initialize(transform.localScale.x, false);
+            big.Initialize(transform.localScale.x, Vector2.right, false);
         }
 
         if(Input.GetKeyDown(KeyCode.M))
         {
             var small = Instantiate(smallProjectile, transform.position, Quaternion.identity);
-            small.Initialize(transform.localScale.x, true);
+            small.Initialize(transform.localScale.x, Vector2.right,true);
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GetBigOrSmall : MonoBehaviour 
 {	
     private BigSmallMovement playerMovement;
-
+    private float timer = 0.05f;
     private void Awake()
     {
         playerMovement = GetComponent<BigSmallMovement>();
@@ -21,7 +21,7 @@ public class GetBigOrSmall : MonoBehaviour
     }
 
     private void BigSmallInput()
-    {
+    {         
         if(Input.GetKey(KeyCode.J))
         {
             GetBigSmall(false);
