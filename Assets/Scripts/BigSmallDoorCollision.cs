@@ -29,21 +29,37 @@ public class BigSmallDoorCollision : MonoBehaviour
         switch(doorDirection)
         {
             case DoorDirection.Up:
+                if(bigSmallRoom.Up == null)
+                {
+                    return;
+                }
                 pos = bigSmallRoom.Up.transform.position;
                 playerPos.y += 2.5f;
                 break;
 
             case DoorDirection.Down:
+                if(bigSmallRoom.Down == null)
+                {
+                    return;
+                }
                 pos = bigSmallRoom.Down.transform.position;
                 playerPos.y -= 2.5f;
                 break;
 
             case DoorDirection.Left:
+                if(bigSmallRoom.Left == null)
+                {
+                    return;
+                }
                 pos = bigSmallRoom.Left.transform.position;
                 playerPos.x -= 2.5f;
                 break;
 
             case DoorDirection.Right:
+                if(bigSmallRoom.Right == null)
+                {
+                    return;
+                }
                 pos = bigSmallRoom.Right.transform.position;
                 playerPos.x += 2.5f;
                 break;
