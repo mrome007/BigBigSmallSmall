@@ -10,4 +10,12 @@ public class BigSmallRoom : MonoBehaviour
     public BigSmallRoom Right;
 
     public Transform PlayerTransform;
+
+    [SerializeField]
+    private BigSmallRoomColliderController colliderController;
+
+    private void Start()
+    {
+        colliderController.EnableDoors(Up != null, Down != null, Left != null, Right != null);
+    }
 }

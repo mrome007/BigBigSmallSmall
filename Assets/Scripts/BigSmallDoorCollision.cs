@@ -19,7 +19,7 @@ public class BigSmallDoorCollision : MonoBehaviour
 
     private void Awake()
     {
-        bigSmallRoom = transform.parent.GetComponent<BigSmallRoom>();
+        bigSmallRoom = transform.parent.parent.GetComponent<BigSmallRoom>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -34,7 +34,7 @@ public class BigSmallDoorCollision : MonoBehaviour
                     return;
                 }
                 pos = bigSmallRoom.Up.transform.position;
-                playerPos.y += 2.5f;
+                playerPos.y += 3f;
                 break;
 
             case DoorDirection.Down:
@@ -43,7 +43,7 @@ public class BigSmallDoorCollision : MonoBehaviour
                     return;
                 }
                 pos = bigSmallRoom.Down.transform.position;
-                playerPos.y -= 2.5f;
+                playerPos.y -= 3f;
                 break;
 
             case DoorDirection.Left:
@@ -52,7 +52,7 @@ public class BigSmallDoorCollision : MonoBehaviour
                     return;
                 }
                 pos = bigSmallRoom.Left.transform.position;
-                playerPos.x -= 2.5f;
+                playerPos.x -= 3f;
                 break;
 
             case DoorDirection.Right:
@@ -61,7 +61,7 @@ public class BigSmallDoorCollision : MonoBehaviour
                     return;
                 }
                 pos = bigSmallRoom.Right.transform.position;
-                playerPos.x += 2.5f;
+                playerPos.x += 3f;
                 break;
         }
 
