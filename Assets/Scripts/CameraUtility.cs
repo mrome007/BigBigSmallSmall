@@ -32,6 +32,8 @@ public class CameraUtility : MonoBehaviour
         }
         transform.position = new Vector3(pos.x, pos.y, transform.position.z);
 
+        yield return null;
+
         var handler = CameraStopped;
         if(handler != null)
         {

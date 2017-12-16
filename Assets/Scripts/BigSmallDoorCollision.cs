@@ -68,6 +68,6 @@ public class BigSmallDoorCollision : MonoBehaviour
         var cam = Camera.main.GetComponent<CameraUtility>();
         cam.MoveCamera(pos);
 
-        bigSmallRoom.PlayerTransform.position = playerPos;
+        BigSmallRoom.PlayerTransform.position = playerPos;
     }
 }
