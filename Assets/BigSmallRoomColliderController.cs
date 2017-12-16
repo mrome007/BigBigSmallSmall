@@ -20,7 +20,7 @@ public class BigSmallRoomColliderController : MonoBehaviour
     public void EnableDoors(bool hasUp, bool hasDown, bool hasLeft, bool hasRight)
     {
         EnableIndividualDoors(up, hasUp);
-        EnableIndividualDoors(down, hasUp);
+        EnableIndividualDoors(down, hasDown);
         EnableIndividualDoors(left, hasLeft);
         EnableIndividualDoors(right, hasRight);
     }
