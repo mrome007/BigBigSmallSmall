@@ -15,8 +15,8 @@ public class BigSmallRoomsCreator : MonoBehaviour
 
     private BigSmallRoom [,] roomsGrid;
     private Stack<Vector2Int> gridPositions;
-    private float xPositionOffset = 20f;
-    private float yPositionOffset = 13f;
+    private float xPositionOffset = 17f;
+    private float yPositionOffset = 11f;
     private GameObject roomsGridParentObject;
 
     private void Awake()
@@ -44,7 +44,7 @@ public class BigSmallRoomsCreator : MonoBehaviour
         roomsGrid[startingGridPos.x, startingGridPos.y] = firstRoom;
 
         var chance = 0;
-
+        var chanceCount = 0;
         while(gridPositions.Count > 0)
         {
             var currentGridPos = gridPositions.Pop();
@@ -56,21 +56,27 @@ public class BigSmallRoomsCreator : MonoBehaviour
 
             var upPosition = currentPosition;
             upPosition.y += yPositionOffset;
-            PlaceRoom(up, upPosition, Random.Range(0, 75 + Random.Range(1, 9)) >= chance);
+            PlaceRoom(up, upPosition, Random.Range(0, 75) >= chance);
 
             var downPosition = currentPosition;
             downPosition.y -= yPositionOffset;
-            PlaceRoom(down, downPosition, Random.Range(0, 75 + Random.Range(1, 9)) >= chance);
+            PlaceRoom(down, downPosition, Random.Range(0, 69) >= chance);
 
             var leftPosition = currentPosition;
             leftPosition.x -= xPositionOffset;
-            PlaceRoom(left, leftPosition, Random.Range(0, 75 + Random.Range(1, 9)) >= chance);
+            PlaceRoom(left, leftPosition, Random.Range(0, 65) >= chance);
 
             var rightPosition = currentPosition;
             rightPosition.x += xPositionOffset;
-            PlaceRoom(right, rightPosition, Random.Range(0, 75 + Random.Range(1, 9)) >= chance);
+            PlaceRoom(right, rightPosition, Random.Range(0, 65) >= chance);
 
-            chance += 2;
+            chance += 5;
+
+            if(chance >= 75)
+            {
+                chanceCount++;
+                chance = chanceCount * 15;
+            }
         }
     }
 
