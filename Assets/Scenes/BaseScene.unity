@@ -156,27 +156,6 @@ Prefab:
       propertyPath: camUtility
       value: 
       objectReference: {fileID: 1797767507}
-    - target: {fileID: 212205887409915184, guid: da77b1893ad0c4352af02c3473b0d813,
-        type: 2}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 212205887409915184, guid: da77b1893ad0c4352af02c3473b0d813,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2c51c893d7629410ea3ea0508e4035fe,
-        type: 3}
-    - target: {fileID: 212205887409915184, guid: da77b1893ad0c4352af02c3473b0d813,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 212205887409915184, guid: da77b1893ad0c4352af02c3473b0d813,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.28
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da77b1893ad0c4352af02c3473b0d813, type: 2}
   m_IsPrefabParent: 0
