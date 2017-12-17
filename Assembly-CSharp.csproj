@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\BigSmallRoom.cs" />
      <Compile Include="Assets\Scripts\BigSmallRoomColliderController.cs" />
      <Compile Include="Assets\Scripts\BigSmallRoomsCreator.cs" />
+     <Compile Include="Assets\Scripts\BigSmallSpriteChange.cs" />
      <Compile Include="Assets\Scripts\CameraUtility.cs" />
      <Compile Include="Assets\Scripts\FireBigSmallProjectile.cs" />
  <Reference Include="UnityEngine.UI">
