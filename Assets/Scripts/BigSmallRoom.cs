@@ -11,6 +11,8 @@ public class BigSmallRoom : MonoBehaviour
 
     public static Transform PlayerTransform;
 
+    public bool Opened { get; set; }
+
     [SerializeField]
     private BigSmallRoomColliderController colliderController;
 
@@ -22,9 +24,6 @@ public class BigSmallRoom : MonoBehaviour
 
     [SerializeField]
     private int numberOfHoles = 2;
-
-    [SerializeField]
-    private int numberOfButtons = 1;
 
     [SerializeField]
     private int numberOfEnemies = 3;

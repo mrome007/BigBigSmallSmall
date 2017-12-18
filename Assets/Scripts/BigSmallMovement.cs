@@ -6,7 +6,7 @@ using UnityEngine;
 public class BigSmallMovement : MonoBehaviour 
 {
     [SerializeField]
-    private float speed = 5f;
+    public float speed = 5f;
 
     [SerializeField]
     private bool move = true;

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61803976940999878}
   - component: {fileID: 50696993432706522}
   - component: {fileID: 114902947096878548}
+  - component: {fileID: 114619063960640294}
   m_Layer: 0
   m_Name: EnemyGrey
   m_TagString: Untagged
@@ -100,6 +101,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cca26df9cbd4a1ab482663bb12a9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114619063960640294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1445321139005560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b20bb2edb98c4e66aa262b4c47aabec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114902947096878548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac3eb9220a294b48a6ac173bae58967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
 --- !u!212 &212805372975807998
 SpriteRenderer:
   m_ObjectHideFlags: 1

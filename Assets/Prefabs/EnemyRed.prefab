@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61037700044926918}
   - component: {fileID: 50069425613933498}
   - component: {fileID: 114073310487477422}
+  - component: {fileID: 114707179455433788}
   m_Layer: 0
   m_Name: EnemyRed
   m_TagString: Untagged
@@ -100,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac3eb9220a294b48a6ac173bae58967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
 --- !u!114 &114399586449387826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +111,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11cca26df9cbd4a1ab482663bb12a9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114707179455433788
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569533941698458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b20bb2edb98c4e66aa262b4c47aabec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212937700113807890

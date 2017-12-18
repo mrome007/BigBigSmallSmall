@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61932466508386400}
   - component: {fileID: 50390496061119314}
   - component: {fileID: 114430689899114594}
+  - component: {fileID: 114704291916342188}
   m_Layer: 0
   m_Name: EnemyBlue
   m_TagString: Untagged
@@ -111,7 +112,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac3eb9220a294b48a6ac173bae58967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
+--- !u!114 &114704291916342188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392636136143204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b20bb2edb98c4e66aa262b4c47aabec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212914601125072418
 SpriteRenderer:
   m_ObjectHideFlags: 1

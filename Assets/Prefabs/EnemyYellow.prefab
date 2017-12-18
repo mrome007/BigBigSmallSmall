@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61836652909788118}
   - component: {fileID: 50088521073463098}
   - component: {fileID: 114257273729366434}
+  - component: {fileID: 114313927412225142}
   m_Layer: 0
   m_Name: EnemyYellow
   m_TagString: Untagged
@@ -100,7 +101,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac3eb9220a294b48a6ac173bae58967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
+--- !u!114 &114313927412225142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219206996169960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b20bb2edb98c4e66aa262b4c47aabec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114727018447415062
 MonoBehaviour:
   m_ObjectHideFlags: 1

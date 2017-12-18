@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BigSmallEnemyMovement : MonoBehaviour 
 {   
-    [SerializeField]
-    private float speed;
+    public float Speed;
     private SpriteRenderer spriteRenderer;
     private float moveTimer = 2f;
     private Vector2 movementDirection;
@@ -25,7 +24,7 @@ public class BigSmallEnemyMovement : MonoBehaviour
         if(moveTimer >= 0)
         {
             movementDirection = (Vector2)BigSmallRoom.PlayerTransform.position - (Vector2)transform.position;
-            transform.Translate(movementDirection.normalized * speed * Time.deltaTime);
+            transform.Translate(movementDirection.normalized * Speed * Time.deltaTime);
             spriteRenderer.flipX = movementDirection.x < 0;
         }
         else
