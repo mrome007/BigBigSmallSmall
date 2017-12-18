@@ -168,6 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1754368598}
   - component: {fileID: 1754368597}
+  - component: {fileID: 1754368599}
   m_Layer: 0
   m_Name: RoomsCreator
   m_TagString: Untagged
@@ -203,6 +204,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1754368599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1754368596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa3bd7f591d184da1a6b37bedbf0da8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BigSmallEnemyObjects:
+  - {fileID: 114015164791286842, guid: b64868927e3334b9798afbe0eb83dcf6, type: 2}
+  - {fileID: 114045942056117458, guid: 985fd080ce8904402bdb07ad1314ff80, type: 2}
+  - {fileID: 114399586449387826, guid: f28596a487aa6455ab42118f738d7c44, type: 2}
+  - {fileID: 114727018447415062, guid: ae525cebbca3c4752aa5b043c33704c2, type: 2}
+  BigSmallHoleObject: {fileID: 114242119286621536, guid: 21425cd9c4df6476fa864fb8f9129aaa,
+    type: 2}
+  BigSmallButtonObject: {fileID: 114345844755616856, guid: 98009372bbc1c4b9cb8bda095509c9f0,
+    type: 2}
 --- !u!1 &1797767502
 GameObject:
   m_ObjectHideFlags: 0

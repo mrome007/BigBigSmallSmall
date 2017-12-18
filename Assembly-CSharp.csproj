@@ -51,11 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BigSmallButton.cs" />
      <Compile Include="Assets\Scripts\BigSmallDoorCollision.cs" />
+     <Compile Include="Assets\Scripts\BigSmallEnemy.cs" />
+     <Compile Include="Assets\Scripts\BigSmallHole.cs" />
      <Compile Include="Assets\Scripts\BigSmallMovement.cs" />
      <Compile Include="Assets\Scripts\BigSmallProjectile.cs" />
      <Compile Include="Assets\Scripts\BigSmallRoom.cs" />
      <Compile Include="Assets\Scripts\BigSmallRoomColliderController.cs" />
+     <Compile Include="Assets\Scripts\BigSmallRoomObjects.cs" />
      <Compile Include="Assets\Scripts\BigSmallRoomsCreator.cs" />
      <Compile Include="Assets\Scripts\BigSmallSpriteChange.cs" />
      <Compile Include="Assets\Scripts\CameraUtility.cs" />

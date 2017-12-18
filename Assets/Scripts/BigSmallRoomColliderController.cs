@@ -25,6 +25,14 @@ public class BigSmallRoomColliderController : MonoBehaviour
         EnableIndividualDoors(right, hasRight);
     }
 
+    public void CloseDoors()
+    {
+        EnableIndividualDoors(up, false);
+        EnableIndividualDoors(down, false);
+        EnableIndividualDoors(left, false);
+        EnableIndividualDoors(right, false);
+    }
+
     private void EnableIndividualDoors(DoorColliders door, bool hasDoor)
     {
         door.DoorCollider.gameObject.SetActive(hasDoor);
