@@ -24,8 +24,14 @@ public class BigSmallDoorCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if(other.tag != "Player")
+        {
+            return;
+        }
+
         var pos = Vector3.zero;
         var playerPos = transform.position;
+        BigSmallRoom dir = null;
         switch(doorDirection)
         {
             case DoorDirection.Up:
@@ -33,6 +39,7 @@ public class BigSmallDoorCollision : MonoBehaviour
                 {
                     return;
                 }
+                dir = bigSmallRoom.Up;
                 pos = bigSmallRoom.Up.transform.position;
                 playerPos.y += 3f;
                 break;
@@ -42,6 +49,7 @@ public class BigSmallDoorCollision : MonoBehaviour
                 {
                     return;
                 }
+                dir = bigSmallRoom.Down;
                 pos = bigSmallRoom.Down.transform.position;
                 playerPos.y -= 3f;
                 break;
@@ -51,6 +59,7 @@ public class BigSmallDoorCollision : MonoBehaviour
                 {
                     return;
                 }
+                dir = bigSmallRoom.Left;
                 pos = bigSmallRoom.Left.transform.position;
                 playerPos.x -= 3f;
                 break;
@@ -60,13 +69,14 @@ public class BigSmallDoorCollision : MonoBehaviour
                 {
                     return;
                 }
+                dir = bigSmallRoom.Right;
                 pos = bigSmallRoom.Right.transform.position;
                 playerPos.x += 3f;
                 break;
         }
 
         var cam = Camera.main.GetComponent<CameraUtility>();
-        cam.MoveCamera(pos);
+        cam.MoveCamera(pos, bigSmallRoom, dir);
 
         BigSmallRoom.PlayerTransform.position = playerPos;
     }

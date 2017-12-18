@@ -91,9 +91,11 @@ public class BigSmallRoomsCreator : MonoBehaviour
         {
             if(roomsGrid[roomGridPos.x, roomGridPos.y] == null)
             {
-                roomsGrid[roomGridPos.x, roomGridPos.y] = Instantiate(roomPrefab, pos, Quaternion.identity);
-                roomsGrid[roomGridPos.x, roomGridPos.y].transform.parent = roomsGridParentObject.transform;
+                var room = Instantiate(roomPrefab, pos, Quaternion.identity);
+                roomsGrid[roomGridPos.x, roomGridPos.y] = room;
+                room.transform.parent = roomsGridParentObject.transform;
                 gridPositions.Push(roomGridPos);
+                room.gameObject.SetActive(false);
             }
         }
     }

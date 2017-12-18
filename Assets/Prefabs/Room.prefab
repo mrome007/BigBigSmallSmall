@@ -615,6 +615,12 @@ MonoBehaviour:
   Down: {fileID: 0}
   Left: {fileID: 0}
   Right: {fileID: 0}
+  colliderController: {fileID: 0}
+  topRightTransform: {fileID: 0}
+  bottomLeftTransform: {fileID: 0}
+  numberOfHoles: 2
+  numberOfButtons: 1
+  numberOfEnemies: 3
 --- !u!114 &114776918479352176
 MonoBehaviour:
   m_ObjectHideFlags: 1

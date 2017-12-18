@@ -943,8 +943,9 @@ MonoBehaviour:
   colliderController: {fileID: 114230944115075920}
   topRightTransform: {fileID: 4382948125029654}
   bottomLeftTransform: {fileID: 4917200661044570}
-  numberOfHoles: 3
+  numberOfHoles: 2
   numberOfButtons: 1
+  numberOfEnemies: 3
 --- !u!114 &114230944115075920
 MonoBehaviour:
   m_ObjectHideFlags: 1

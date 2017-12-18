@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\BigSmallButton.cs" />
      <Compile Include="Assets\Scripts\BigSmallDoorCollision.cs" />
      <Compile Include="Assets\Scripts\BigSmallEnemy.cs" />
+     <Compile Include="Assets\Scripts\BigSmallEnemyMovement.cs" />
      <Compile Include="Assets\Scripts\BigSmallHole.cs" />
      <Compile Include="Assets\Scripts\BigSmallMovement.cs" />
      <Compile Include="Assets\Scripts\BigSmallProjectile.cs" />

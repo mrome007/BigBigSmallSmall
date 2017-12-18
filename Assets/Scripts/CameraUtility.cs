@@ -8,18 +8,19 @@ public class CameraUtility : MonoBehaviour
     public event EventHandler CameraMoved;
     public event EventHandler CameraStopped;
 
-    public void MoveCamera(Vector3 pos)
+    public void MoveCamera(Vector3 pos, BigSmallRoom current, BigSmallRoom next)
     {
         var handler = CameraMoved;
         if(handler != null)
         {
             handler(this, null);
         }
-        StartCoroutine(MoveCameraRoutine(pos));
+        StartCoroutine(MoveCameraRoutine(pos, current, next));
     }
 
-    private IEnumerator MoveCameraRoutine(Vector3 pos)
+    private IEnumerator MoveCameraRoutine(Vector3 pos, BigSmallRoom current, BigSmallRoom next)
     {
+        next.gameObject.SetActive(true);
         var currentPos = transform.position;
         pos.z = currentPos.z;
         var direction = (pos - currentPos).normalized;
@@ -31,6 +32,8 @@ public class CameraUtility : MonoBehaviour
             distance = Vector3.Distance(transform.position, pos);
         }
         transform.position = new Vector3(pos.x, pos.y, transform.position.z);
+
+        current.gameObject.SetActive(false);
 
         yield return null;
 

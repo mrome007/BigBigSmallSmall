@@ -27,7 +27,11 @@ public class BigSmallRoom : MonoBehaviour
     private int numberOfButtons = 1;
 
     [SerializeField]
-    private int numberOfEnemies = 5;
+    private int numberOfEnemies = 3;
+
+    private List<BigSmallHole> holes;
+    private BigSmallButton button;
+    private List<BigSmallEnemy> enemies;
 
     private void Awake()
     {
@@ -35,6 +39,8 @@ public class BigSmallRoom : MonoBehaviour
         {
             PlayerTransform = GameObject.Find("BigSmallPlayer").transform;
         }
+        holes = new List<BigSmallHole>();
+        enemies = new List<BigSmallEnemy>();
     }
 
     private void Start()
@@ -49,7 +55,7 @@ public class BigSmallRoom : MonoBehaviour
         var whichObstacle = Random.Range(0, 100) >= 50;
         if(whichObstacle)
         {
-            var numberOfCreatedHoles = Random.Range(1, numberOfHoles + 1);
+            var numberOfCreatedHoles = Random.Range(1, numberOfHoles);
             for(int index = 0; index < numberOfCreatedHoles; index++)
             {
                 var randomPosX = Random.Range(bottomLeftTransform.transform.position.x, topRightTransform.transform.position.x);
@@ -58,6 +64,7 @@ public class BigSmallRoom : MonoBehaviour
 
                 var hole = Instantiate(BigSmallRoomObjects.Instance.BigSmallHoleObject, newPos, Quaternion.identity);
                 hole.transform.parent = transform;
+                holes.Add(hole);
             }
         }
         else
@@ -65,14 +72,14 @@ public class BigSmallRoom : MonoBehaviour
             var randomPosX = Random.Range(bottomLeftTransform.transform.position.x, topRightTransform.transform.position.x);
             var randomPosY = Random.Range(bottomLeftTransform.transform.position.y, topRightTransform.transform.position.y);
             var newPos = new Vector2(randomPosX, randomPosY);
-            var button = Instantiate(BigSmallRoomObjects.Instance.BigSmallButtonObject, newPos, Quaternion.identity);
+            button = Instantiate(BigSmallRoomObjects.Instance.BigSmallButtonObject, newPos, Quaternion.identity);
             button.transform.parent = transform;
         }
     }
 
     private void CreateRoomEnemies()
     {
-        var numberOfEnemiesCreated = Random.Range(1, numberOfEnemies);
+        var numberOfEnemiesCreated = holes.Count > 0 ? holes.Count + 1 : Random.Range(1, numberOfEnemies);
         for (int index = 0; index < numberOfEnemiesCreated; index++)
         {
             var randomPosX = Random.Range(bottomLeftTransform.transform.position.x, topRightTransform.transform.position.x);
@@ -82,6 +89,7 @@ public class BigSmallRoom : MonoBehaviour
             var enemy = Instantiate(BigSmallRoomObjects.Instance.BigSmallEnemyObjects[Random.Range(0, BigSmallRoomObjects.Instance.BigSmallEnemyObjects.Count)],
                             newPos, Quaternion.identity);
             enemy.transform.parent = transform;
+            enemies.Add(enemy);
         }
     }
 }
