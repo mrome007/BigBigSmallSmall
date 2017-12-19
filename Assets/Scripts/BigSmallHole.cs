@@ -32,7 +32,6 @@ public class BigSmallHole : MonoBehaviour
                 Destroy(other.gameObject);
                 holdHold -= scale;
                 HoleDone();
-                Debug.Log("wat");
             }
         }
     }
@@ -49,7 +48,6 @@ public class BigSmallHole : MonoBehaviour
                     Destroy(other.gameObject);
                     holdHold -= scale;
                     HoleDone();
-                    Debug.Log("hello");
                 }
             }
         }
@@ -57,7 +55,6 @@ public class BigSmallHole : MonoBehaviour
 
     private void HoleDone()
     {
-        Debug.Log(holdHold);
         if(holdHold <= 0f)
         {
             Done = true;

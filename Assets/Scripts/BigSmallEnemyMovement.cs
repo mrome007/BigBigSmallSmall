@@ -12,6 +12,7 @@ public class BigSmallEnemyMovement : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        Speed = Random.Range(1f, 3f);
     }
 
     private void Update()
@@ -30,8 +31,8 @@ public class BigSmallEnemyMovement : MonoBehaviour
         else
         {
             move = false;
-            Invoke("RestoreMovement", Random.Range(0.5f, 1f));
-            moveTimer = Random.Range(2f, 2.5f);
+            Invoke("RestoreMovement", Random.Range(0.25f, 0.35f));
+            moveTimer = Random.Range(3f, 5f);
         }
 
         moveTimer -= Time.deltaTime;

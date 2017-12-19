@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BigSmallMovement : MonoBehaviour 
 {
@@ -17,7 +18,7 @@ public class BigSmallMovement : MonoBehaviour
     private Vector2 movementVector;
     private Rigidbody2D rigidBody;
     private BigSmallSpriteChange dirSpriteChange;
-
+    private BigSmallPlayerLife playerLife;
     public Vector2 Direction { get; private set; }
 
     private void Awake()
@@ -25,6 +26,7 @@ public class BigSmallMovement : MonoBehaviour
     	movementVector = Vector2.zero;
         rigidBody = GetComponent<Rigidbody2D>();
         dirSpriteChange = GetComponent<BigSmallSpriteChange>();
+        playerLife = GetComponent<BigSmallPlayerLife>();
         Direction = Vector2.right;
 
         camUtility.CameraMoved += CameraMovedHandler;
@@ -56,6 +58,7 @@ public class BigSmallMovement : MonoBehaviour
     private void CameraStoppedHandler(object sender, EventArgs e)
     {
         move = true;
+        playerLife.ImmunityAtStart();
     }
 
     private void CameraMovedHandler(object sender, EventArgs e)

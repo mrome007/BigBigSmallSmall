@@ -37,10 +37,12 @@ public class CameraUtility : MonoBehaviour
         current.gameObject.SetActive(false);
 
         yield return null;
+
         if(!next.Opened)
         {
             next.CloseDoors();
         }
+            
         var handler = CameraStopped;
         if(handler != null)
         {

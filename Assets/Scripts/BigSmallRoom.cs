@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BigSmallRoom : MonoBehaviour 
 {
+    public bool Win = false;
+
     public BigSmallRoom Up;
     public BigSmallRoom Down;
     public BigSmallRoom Left;
@@ -30,7 +33,7 @@ public class BigSmallRoom : MonoBehaviour
     private int numberOfEnemies = 3;
 
     private List<BigSmallHole> holes;
-    private BigSmallButton button;
+    private List<BigSmallButton> button;
     private List<BigSmallEnemy> enemies;
 
     private void Awake()
@@ -40,6 +43,7 @@ public class BigSmallRoom : MonoBehaviour
             PlayerTransform = GameObject.Find("BigSmallPlayer").transform;
         }
         holes = new List<BigSmallHole>();
+        button = new List<BigSmallButton>();
         enemies = new List<BigSmallEnemy>();
         Opened = false;
         colliderController.EnableDoors(Up != null, Down != null, Left != null, Right != null);
@@ -47,12 +51,18 @@ public class BigSmallRoom : MonoBehaviour
 
     private void Start()
     {
-
+        if(Win)
+        {
+            return;
+        }
         CreateRoomObstacles();
         CreateRoomEnemies();
-        if(button != null)
+        if(button.Count > 0)
         {
-            button.Pressed += ButtonPressed;
+            for(int index = 0; index < button.Count; index++)
+            {
+                button[index].Pressed += ButtonPressed;
+            }
         }
         else
         {
@@ -63,20 +73,50 @@ public class BigSmallRoom : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(!Win)
+        {
+            return;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
     private void OnEnable()
     {
+        RearrangeEnemies();
         RepositionEnemies();
     }
 
     private void ButtonPressed(object sender, System.EventArgs e)
     {
-        button.Pressed -= ButtonPressed;
-        Opened = true;
-        OpenDoors();
+        var pressed = true;
+        for(int index = 0; index < button.Count; index++)
+        {
+            if(!button[index].Done)
+            {
+                pressed = false;
+            }
+        }
+
+        if(pressed)
+        {
+            for(int index = 0; index < button.Count; index++)
+            {
+                button[index].Pressed -= ButtonPressed;
+            }
+            Opened = true;
+            OpenDoors();
+        }
     }
 
     private void FilledIn(object sender, System.EventArgs e)
     {
+        RearrangeEnemies();
         var filled = true;
 
         for(int index = 0; index < holes.Count; index++)
@@ -117,17 +157,22 @@ public class BigSmallRoom : MonoBehaviour
         }
         else
         {
-            var randomPosX = Random.Range(bottomLeftTransform.transform.position.x, topRightTransform.transform.position.x);
-            var randomPosY = Random.Range(bottomLeftTransform.transform.position.y, topRightTransform.transform.position.y);
-            var newPos = new Vector2(randomPosX, randomPosY);
-            button = Instantiate(BigSmallRoomObjects.Instance.BigSmallButtonObject, newPos, Quaternion.identity);
-            button.transform.parent = transform;
+            var numberOfCreatedHoles = Random.Range(1, numberOfHoles);
+            for(int index = 0; index < numberOfCreatedHoles; index++)
+            {
+                var randomPosX = Random.Range(bottomLeftTransform.transform.position.x, topRightTransform.transform.position.x);
+                var randomPosY = Random.Range(bottomLeftTransform.transform.position.y, topRightTransform.transform.position.y);
+                var newPos = new Vector2(randomPosX, randomPosY);
+                var btn = Instantiate(BigSmallRoomObjects.Instance.BigSmallButtonObject, newPos, Quaternion.identity);
+                btn.transform.parent = transform;
+                button.Add(btn);
+            }
         }
     }
 
     private void CreateRoomEnemies()
     {
-        var numberOfEnemiesCreated = holes.Count > 0 ? 2 * holes.Count: Random.Range(1, numberOfEnemies);
+        var numberOfEnemiesCreated = holes.Count > 0 ? 3 * holes.Count + Random.Range(1,3): Random.Range(3, numberOfEnemies);
         for(int index = 0; index < numberOfEnemiesCreated; index++)
         {
             var randomPosX = Random.Range(bottomLeftTransform.transform.position.x, topRightTransform.transform.position.x);

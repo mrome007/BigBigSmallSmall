@@ -58,6 +58,7 @@
      <Compile Include="Assets\Scripts\BigSmallEnemyMovement.cs" />
      <Compile Include="Assets\Scripts\BigSmallHole.cs" />
      <Compile Include="Assets\Scripts\BigSmallMovement.cs" />
+     <Compile Include="Assets\Scripts\BigSmallPlayerLife.cs" />
      <Compile Include="Assets\Scripts\BigSmallProjectile.cs" />
      <Compile Include="Assets\Scripts\BigSmallRoom.cs" />
      <Compile Include="Assets\Scripts\BigSmallRoomColliderController.cs" />

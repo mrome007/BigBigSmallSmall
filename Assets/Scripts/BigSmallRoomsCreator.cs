@@ -8,6 +8,9 @@ public class BigSmallRoomsCreator : MonoBehaviour
     private BigSmallRoom roomPrefab;
 
     [SerializeField]
+    private BigSmallRoom winRoomPrefab;
+
+    [SerializeField]
     private int numberOfColumns = 12;
 
     [SerializeField]
@@ -78,6 +81,25 @@ public class BigSmallRoomsCreator : MonoBehaviour
                 chanceCount++;
                 chance = chanceCount * 15;
             }
+        }
+
+        for(int colIndex = numberOfColumns - 1; colIndex >= 0; colIndex--)
+        {
+            for(int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
+            {
+                var room = roomsGrid[colIndex, rowIndex];
+                if(room != null)
+                {
+                    var winRoom = Instantiate(winRoomPrefab, room.transform.position, Quaternion.identity);
+                    winRoom.transform.parent = roomsGridParentObject.transform;
+                    roomsGrid[colIndex, rowIndex] = winRoom;
+                    winRoom.gameObject.SetActive(false);
+                    Destroy(room.gameObject);
+                    colIndex = 0;
+                    break;
+                }
+            }
+
         }
     }
 
