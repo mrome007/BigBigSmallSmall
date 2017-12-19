@@ -234,6 +234,8 @@ MonoBehaviour:
     type: 2}
   UpButton: {fileID: 21300000, guid: 98812c35d89fa4908853c5cf56c47ed0, type: 3}
   DownButton: {fileID: 21300000, guid: ade6a82a1cc1344fa9e65fba4739d57b, type: 3}
+  Hole: {fileID: 21300000, guid: dfc5200f204464e0daa18333a5848731, type: 3}
+  Filled: {fileID: 21300000, guid: dda210e99ac194c03b6f2417bc55b1cb, type: 3}
 --- !u!1 &1797767502
 GameObject:
   m_ObjectHideFlags: 0

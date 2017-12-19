@@ -47,28 +47,14 @@ public class BigSmallButton : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if(!Done)
-        {
-            if(other.tag == "Enemy")
-            {
-                if(other.transform.localScale.x > maxScaleToHold)
-                {
-                    ButtonDone();
-                }
-            }
-        }
-    }
-
     private void ButtonDone()
     {
+        Done = true;
         var handler = Pressed;
         if(handler != null)
         {
             handler(this, null);
         }
-        Done = true;
         buttonCollider.enabled = false;
         ChangeButton();
     }

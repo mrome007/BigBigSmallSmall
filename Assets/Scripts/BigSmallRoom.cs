@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -49,7 +50,17 @@ public class BigSmallRoom : MonoBehaviour
 
         CreateRoomObstacles();
         CreateRoomEnemies();
-        button.Pressed += ButtonPressed;
+        if(button != null)
+        {
+            button.Pressed += ButtonPressed;
+        }
+        else
+        {
+            for(int index = 0; index < holes.Count; index++)
+            {
+                holes[index].Filled += FilledIn;
+            }
+        }
     }
 
     private void OnEnable()
@@ -64,9 +75,32 @@ public class BigSmallRoom : MonoBehaviour
         OpenDoors();
     }
 
+    private void FilledIn(object sender, System.EventArgs e)
+    {
+        var filled = true;
+
+        for(int index = 0; index < holes.Count; index++)
+        {
+            if(!holes[index].Done)
+            {
+                filled = false;
+            }
+        }
+
+        if(filled)
+        {
+            for(int index = 0; index < holes.Count; index++)
+            {
+                holes[index].Filled -= FilledIn;
+            }
+            Opened = true;
+            OpenDoors();
+        }
+    }
+
     private void CreateRoomObstacles()
     {
-        var whichObstacle = false; // Random.Range(0, 100) >= 50;
+        var whichObstacle = Random.Range(0, 100) >= 50;
         if(whichObstacle)
         {
             var numberOfCreatedHoles = Random.Range(1, numberOfHoles);
@@ -93,7 +127,7 @@ public class BigSmallRoom : MonoBehaviour
 
     private void CreateRoomEnemies()
     {
-        var numberOfEnemiesCreated = holes.Count > 0 ? holes.Count + 1 : Random.Range(1, numberOfEnemies);
+        var numberOfEnemiesCreated = holes.Count > 0 ? 2 * holes.Count: Random.Range(1, numberOfEnemies);
         for(int index = 0; index < numberOfEnemiesCreated; index++)
         {
             var randomPosX = Random.Range(bottomLeftTransform.transform.position.x, topRightTransform.transform.position.x);
@@ -116,6 +150,11 @@ public class BigSmallRoom : MonoBehaviour
             var newPos = new Vector2(randomPosX, randomPosY);
             enemies[index].transform.position = newPos;
         }
+    }
+
+    private void RearrangeEnemies()
+    {
+        enemies = enemies.Where(enemy => enemy != null).ToList();
     }
 
     public void OpenDoors()

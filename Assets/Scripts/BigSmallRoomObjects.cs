@@ -22,6 +22,8 @@ public class BigSmallRoomObjects : MonoBehaviour
     public BigSmallButton BigSmallButtonObject;
     public Sprite UpButton;
     public Sprite DownButton;
+    public Sprite Hole;
+    public Sprite Filled;
 
     private void Awake()
     {
