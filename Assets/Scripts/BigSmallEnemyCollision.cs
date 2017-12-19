@@ -14,36 +14,25 @@ public class BigSmallEnemyCollision : MonoBehaviour
         if(other.tag == "Big")
         {
             var scale = transform.localScale;
-            var bigSmallEnemyMovement = GetComponent<BigSmallEnemyMovement>();
             if(scale.x < maxScale)
             {
                 scale.x += bigIncr;
                 scale.y += bigIncr;
                 transform.localScale = scale;
             }
-
-            if(bigSmallEnemyMovement.Speed > 0.1f)
-            {
-                bigSmallEnemyMovement.Speed -= smallIncr;
-            }
+            Destroy(other.gameObject);
         }
         else if(other.tag == "Small")
         {
             var scale = transform.localScale;
-            var bigSmallEnemyMovement = GetComponent<BigSmallEnemyMovement>();
             if(scale.x > minScale)
             {
                 scale.x -= smallIncr;
                 scale.y -= smallIncr;
                 transform.localScale = scale;
             }
-
-            if(bigSmallEnemyMovement.Speed < 2f)
-            {
-                bigSmallEnemyMovement.Speed += smallIncr;
-            }
+            Destroy(other.gameObject);
         }
 
-        Destroy(other.gameObject);
     }
 }

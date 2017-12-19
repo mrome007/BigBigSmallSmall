@@ -21,6 +21,7 @@ public class CameraUtility : MonoBehaviour
     private IEnumerator MoveCameraRoutine(Vector3 pos, BigSmallRoom current, BigSmallRoom next)
     {
         next.gameObject.SetActive(true);
+        next.OpenDoors();
         var currentPos = transform.position;
         pos.z = currentPos.z;
         var direction = (pos - currentPos).normalized;
@@ -36,7 +37,10 @@ public class CameraUtility : MonoBehaviour
         current.gameObject.SetActive(false);
 
         yield return null;
-
+        if(!next.Opened)
+        {
+            next.CloseDoors();
+        }
         var handler = CameraStopped;
         if(handler != null)
         {

@@ -30,8 +30,8 @@ public class BigSmallEnemyMovement : MonoBehaviour
         else
         {
             move = false;
-            Invoke("RestoreMovement", 0.5f);
-            moveTimer = 2f;
+            Invoke("RestoreMovement", Random.Range(0.5f, 1f));
+            moveTimer = Random.Range(2f, 2.5f);
         }
 
         moveTimer -= Time.deltaTime;

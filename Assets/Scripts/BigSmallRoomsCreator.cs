@@ -39,6 +39,7 @@ public class BigSmallRoomsCreator : MonoBehaviour
         roomsGridParentObject = new GameObject("RoomsParent");
 
         var firstRoom = Instantiate(roomPrefab, startingPosition, Quaternion.identity);
+        firstRoom.CloseDoors();
         firstRoom.transform.parent = roomsGridParentObject.transform;
         gridPositions.Push(startingGridPos);
         roomsGrid[startingGridPos.x, startingGridPos.y] = firstRoom;

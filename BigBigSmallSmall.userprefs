@@ -1,15 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/FireBigSmallProjectile.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/BigSmallRoomColliderController.cs">
     <Files>
-      <File FileName="Assets/Scripts/BigSmallDoorCollision.cs" Line="37" Column="33" />
-      <File FileName="Assets/Scripts/BigSmallProjectile.cs" Line="24" Column="1" />
-      <File FileName="Assets/Scripts/BigSmallMovement.cs" Line="21" Column="29" />
-      <File FileName="Assets/Scripts/FireBigSmallProjectile.cs" Line="11" Column="46" />
-      <File FileName="Assets/Scripts/BigSmallRoom.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CameraUtility.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BigSmallRoomsCreator.cs" Line="75" Column="28" />
-      <File FileName="Assets/Scripts/BigSmallSpriteChange.cs" Line="34" Column="70" />
+      <File FileName="Assets/Scripts/BigSmallEnemyCollision.cs" Line="33" Column="41" />
+      <File FileName="Assets/Scripts/BigSmallEnemyMovement.cs" Line="7" Column="11" />
+      <File FileName="Assets/Scripts/BigSmallMovement.cs" Line="8" Column="20" />
+      <File FileName="Assets/Scripts/BigSmallRoom.cs" Line="47" Column="34" />
+      <File FileName="Assets/Scripts/BigSmallRoomColliderController.cs" Line="28" Column="29" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

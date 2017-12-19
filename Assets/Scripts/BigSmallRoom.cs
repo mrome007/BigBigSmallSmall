@@ -40,18 +40,33 @@ public class BigSmallRoom : MonoBehaviour
         }
         holes = new List<BigSmallHole>();
         enemies = new List<BigSmallEnemy>();
+        Opened = false;
+        colliderController.EnableDoors(Up != null, Down != null, Left != null, Right != null);
     }
 
     private void Start()
     {
-        colliderController.EnableDoors(Up != null, Down != null, Left != null, Right != null);
+
         CreateRoomObstacles();
         CreateRoomEnemies();
+        button.Pressed += ButtonPressed;
+    }
+
+    private void OnEnable()
+    {
+        RepositionEnemies();
+    }
+
+    private void ButtonPressed(object sender, System.EventArgs e)
+    {
+        button.Pressed -= ButtonPressed;
+        Opened = true;
+        OpenDoors();
     }
 
     private void CreateRoomObstacles()
     {
-        var whichObstacle = Random.Range(0, 100) >= 50;
+        var whichObstacle = false; // Random.Range(0, 100) >= 50;
         if(whichObstacle)
         {
             var numberOfCreatedHoles = Random.Range(1, numberOfHoles);
@@ -79,7 +94,7 @@ public class BigSmallRoom : MonoBehaviour
     private void CreateRoomEnemies()
     {
         var numberOfEnemiesCreated = holes.Count > 0 ? holes.Count + 1 : Random.Range(1, numberOfEnemies);
-        for (int index = 0; index < numberOfEnemiesCreated; index++)
+        for(int index = 0; index < numberOfEnemiesCreated; index++)
         {
             var randomPosX = Random.Range(bottomLeftTransform.transform.position.x, topRightTransform.transform.position.x);
             var randomPosY = Random.Range(bottomLeftTransform.transform.position.y, topRightTransform.transform.position.y);
@@ -90,5 +105,26 @@ public class BigSmallRoom : MonoBehaviour
             enemy.transform.parent = transform;
             enemies.Add(enemy);
         }
+    }
+
+    private void RepositionEnemies()
+    {
+        for(int index = 0; index < enemies.Count; index++)
+        {
+            var randomPosX = Random.Range(bottomLeftTransform.transform.position.x, topRightTransform.transform.position.x);
+            var randomPosY = Random.Range(bottomLeftTransform.transform.position.y, topRightTransform.transform.position.y);
+            var newPos = new Vector2(randomPosX, randomPosY);
+            enemies[index].transform.position = newPos;
+        }
+    }
+
+    public void OpenDoors()
+    {
+        colliderController.EnableDoors(Up != null, Down != null, Left != null, Right != null);
+    }
+
+    public void CloseDoors()
+    {
+        colliderController.DisableDoors();
     }
 }

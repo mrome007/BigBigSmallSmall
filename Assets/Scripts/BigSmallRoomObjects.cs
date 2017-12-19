@@ -20,6 +20,8 @@ public class BigSmallRoomObjects : MonoBehaviour
     public List<BigSmallEnemy> BigSmallEnemyObjects;
     public BigSmallHole BigSmallHoleObject;
     public BigSmallButton BigSmallButtonObject;
+    public Sprite UpButton;
+    public Sprite DownButton;
 
     private void Awake()
     {

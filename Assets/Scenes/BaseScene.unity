@@ -232,6 +232,8 @@ MonoBehaviour:
     type: 2}
   BigSmallButtonObject: {fileID: 114345844755616856, guid: 98009372bbc1c4b9cb8bda095509c9f0,
     type: 2}
+  UpButton: {fileID: 21300000, guid: 98812c35d89fa4908853c5cf56c47ed0, type: 3}
+  DownButton: {fileID: 21300000, guid: ade6a82a1cc1344fa9e65fba4739d57b, type: 3}
 --- !u!1 &1797767502
 GameObject:
   m_ObjectHideFlags: 0
